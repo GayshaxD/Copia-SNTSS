@@ -1,0 +1,65 @@
+<div class="container-fluid">
+    <div class="row">
+        <!--primera columna-->
+        <div class="col-md-12">
+            <div class="card" style="border-radius: 10px">
+                <div class="card-body">
+                    <h3 class="card-title"><i class="fas fa-stream mr-2"></i>Historial de cursos <span class="small"> (01/01/2020 - 14/06/2021)</span></h3>
+                    <hr>
+                    <div class="table-responsive">
+                        <table id="zero_config" class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Nombre del Curso</th>
+                                    <th>Alumnos</th>
+                                    <th>Área</th>
+                                    <th>Tipo</th>
+                                    <th>Modalidad</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each historialCursosPonente}}
+                                <tr>
+                                    <td>{{nombreCurso}}</td>
+                                    <td>{{numeroInscripcionesCurso}}</td>
+                                    <td> {{areaCurso}}</td>
+                                    <td> {{tipoCurso}}</td>
+                                    <td>{{modalidadCurso}}</td>
+                                    <td>
+                                        {{#ifEquals estadoCurso "Cursando"}}
+                                        <span class="label label-info">Cursando</span>
+                                        {{/ifEquals}}
+                                        {{#ifEquals estadoCurso "Cursado"}}
+                                        <span class="label label-danger">Cursado</span>
+                                        {{/ifEquals}}
+                                        {{#ifEquals estadoCurso "Por Cursar"}}
+                                        <span class="label label-primary">Por Cursar</span>
+                                        {{/ifEquals}}
+                                    </td>
+                                    <td>
+                                        <a href="/ponente/curso/{{idCurso}}" class="btn waves-effect waves-light btn-rounded btn-sm btn-success small">
+                                            <i class="fas fa-external-link-alt mr-2"></i>Ir al Curso</a> 
+                                    </td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Nombre del Curso</th>
+                                    <th>Alumnos</th>
+                                    <th>Área</th>
+                                    <th>Tipo</th>
+                                    <th>Modalidad</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

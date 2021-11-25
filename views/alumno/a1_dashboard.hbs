@@ -1,0 +1,176 @@
+<div class="container-fluid">
+    <div class="row">
+        <!--primera columna-->
+        <div class="col-md-3">
+            <div class="card" style="border-radius: 6px">
+                <div class="ml-3 mt-3 p-1">
+                    <h3 class="card-title p-0"><i class="fas fa-newspaper mr-2"></i>Tu resúmen</h3>
+                </div>
+                <div class="card-body ml-4 p-1">
+                    {{#resumenEstudiante}}
+                    {{#if cursosTotales}}
+                    <p class="box mb-0 p-0"><i class="fas fa-book mr-2"></i> Total de Cursos: ({{cursosTotales}})</p>
+                    {{else}}
+                    <p class="box mb-0 p-0"><i class="fas fa-book mr-2"></i> Total de Cursos: (0)</p>
+                    {{/if}}
+                    {{#if cursosTerminados}}
+                    <p class="box mb-0 p-0"><i class="fas fa-user-graduate mr-2"></i> Cursos Terminados: ({{cursosTerminados}})</p>
+                    {{else}}
+                    <p class="box mb-0 p-0"><i class="fas fa-user-graduate mr-2"></i> Cursos Terminados: (0)</p>
+                    {{/if}}
+                    {{#if cursosDisponibles}}
+                    <p class="box mb-0 p-0"><i class="fas fa-book-open mr-2"></i>Cursos Disponibles: ({{cursosDisponibles}})</p>
+                    {{else}}
+                    <p class="box mb-0 p-0"><i class="fas fa-book-open mr-2"></i>Cursos Disponibles: (0)</p>
+                    {{/if}}
+                    {{#if problemasPendientes}}
+                    <p class="box mb-0 p-0 mb-3"><i class="fas fa-exclamation mr-3"></i>  Reportes Pendientes: ({{problemasPendientes}})</p>
+                    {{else}}
+                    <p class="box mb-0 p-0 mb-3"><i class="fas fa-exclamation mr-3"></i>  Reportes Pendientes: (0)</p>
+                    {{/if}}
+                    {{/resumenEstudiante}}
+                    <center>
+                    <div class="col-12">
+                        <canvas width="100" height="100" id="GraficaMuestra8"></canvas>
+                    </div>
+                </center>
+                </div>
+            </div>
+            <div class="card" style="border-radius: 10px">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h4>¿Tienes una Clave?</h4>
+                            <form class="form-valide" method="POST" action="VerificarClaveCurso">
+                                <div class="form-group mt-4">
+                                    <div class="col text-center">
+                                        <input type="text" name="claveCursoEnviada" class="form-control" placeholder="Ingresa tu Cláve aqui" autocomplete="off">
+                                        <button type="submit" class="btn btn-warning mt-3">
+                                            <i class="fas fa-check mr-2" ></i>Validar Clave</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--centro o contenido-->
+        <div class="col-md-6">
+            {{#cursoActualEstudiante}}
+            <div class="card card-hover text-white" style="background: rgb(65, 71, 85); border-radius: 6px">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4 text-center">
+                            <!-- FALTAAGREGAR <img class="card-img img-responsive" style="border-radius: 8px;" src="../../assets/multimedia/cursos/{{idCurso}}/{{fotoCurso}}" alt="Imgagen siguiente curso"> -->
+                            <img class="card-img img-responsive" style="border-radius: 8px;" src="../../assets/images/cursoImg1.JPG" alt="Imgagen siguiente curso">
+                        </div>
+                        <div class="col-md-8">
+                            <h5 class="mb-0 font-16">{{nombreCurso}}</h5>
+                            <h6 class="font-light ml-2 p-1">
+                                <i class="fas fa-clock" ></i> {{horaInicioCurso}} - {{horaFinCurso}}
+                                <i class="fas fa-users ml-2 mr-2" ></i>{{totalEstudiantesCurso}}
+                            </h6>
+                            <span class="small">
+                                <!-- FALTAAGREGAR
+                                    {{#if plataformacurso}} 
+                                        <a href="{{plataformaCurso}}" class="btn  btn-rounded btn-sm btn-success small">
+                                        <i class="fas fa-external-link-alt mr-1"></i>Ir a la plataforma </a>
+                                    {{/if}}-->
+                                <a href="#" class="btn  btn-rounded btn-sm btn-success small">
+                                    <i class="fas fa-external-link-alt mr-1"></i>Ir a la plataforma </a>
+                                <a href="/estudiante/curso/{{idCurso}}" class="btn  btn-rounded btn-sm btn-success small">
+                                    <i class="fas fa-external-link-alt mr-1"></i>Ir al Curso </a>   
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-center">
+                    <div class="col-md-12 text-center">
+                        <h6 class="ml-2 mr-2 mt-2">
+                            <i class="fas fa-briefcase mr-1"> </i> Area: <span class="small mr-2">{{nombreArea}}</span>
+                            <i class="far fa-circle mr-1"></i> Tipo: <span class="small mr-2">{{tipoCurso}}</span>
+                            <i class="fas fa-video mr-1"></i> Modalidad: <span class="small mr-2">{{modalidadCurso}}</span>
+                        </h6>
+                    </div>
+                </div>
+            </div>
+            {{/cursoActualEstudiante}}
+            <div class="card" style="border-radius: 10px">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h3>¿Deseas inscribirte a un curso?</h3>
+                            <p>Consulta nuestro catálogo de cursos en:</p>
+                            <a href="/estudiante/CatalogoCursos" class="btn waves-effect waves-light btn-success">
+                                <i class="fas fa-book-open mr-2"></i>Cátalogo de Cursos</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row text-center d-flex">
+                <div class="col-md-4">
+                    <hr>
+                </div>
+                <div class="col-md-4 text-center ">
+                    <p>Te podría Interesar</p>
+                </div>
+                <div class="col-md-4">
+                    <hr>
+                </div>
+            </div>
+            <!--máximo 3 cursos del catalogo de cursos-->
+            {{#each posiblesCursosEstudiante}}
+            <div class="card card-hover" style="border-radius: 6px">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4 text-center">
+                            <!-- FALTAAGREGAR <img src="../../assets/multimedia/cursos/{{idCurso}}/{{fotoCurso}}" class="rounded-circle" height="200" alt="Curso"> -->
+                            <img class="card-img img-responsive" style="border-radius: 8px;" src="../../assets/images/cursoImg1.JPG" alt="Imgagen siguiente curso">
+                        </div>
+                        <div class="col-md-8">
+                            <h5 class="mb-0 font-16">{{nombreCurso}}</h5>
+                            <h6 class="font-light ml-2 p-1">
+                                <i class="fas fa-clock" ></i> {{horaInicioCurso}} - {{horaFinCurso}}
+                                <i class="fas fa-users ml-2 mr-2" ></i>{{totalEstudiantesCurso}}
+                            </h6>
+                            <span class="small">
+                                <a href="/estudiante/curso/{{idCurso}}" class="btn  btn-rounded btn-sm btn-success small">
+                                    <i class="fas fa-external-link-alt mr-1"></i>Consultar Detalles</a>    
+                            </span>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col-md-12 text-center">
+                    <h6 class="ml-2 mr-2 mt-2">
+                        <i class="fas fa-briefcase mr-1"> </i> Area: <span class="small mr-2">{{nombreArea}}</span>
+                        <i class="far fa-circle mr-1"></i> Tipo: <span class="small mr-2">{{tipoCurso}}</span>
+                        <i class="fas fa-video mr-1"></i> Modalidad: <span class="small mr-2">{{modalidadCurso}}</span>
+                    </h6>
+                </div>
+            </div>
+            {{/each}}
+            
+        </div>
+        <!--tercera columna-->
+        <div class="col-md-3">
+            <div class="card text-center" style="border-radius: 6px">
+                <div class="card-body p-2">
+                    <img class="card-img-top img-responsive" height="100px" src="../../assets/images/logoBienvenida.svg" alt="Card image cap">
+                    <h3>!{{mensaje}}, {{#miPerfil}}<span class="small">{{nombres}}</span>{{/miPerfil}}!</h3>
+                    <p>Que gusto verte de nuevo, aprovecha todos los cursos que tu sindicato ha preparado para ti.</p>
+                </div>
+            </div>
+
+            <div class="card text-center" style="border-radius: 6px">
+                <div class="card-body">
+                    <h3>¿Tienes un problema?</h3>
+                    <p>Háznoslo saber a través de: </p>
+                    <!--FALTAAGREGAR PÁGINA FUNCIONALIDAD-->
+                    <a href="/soporte" class="btn  btn-block btn-danger"><i class="fas fa-exclamation-triangle mr-2"></i>Soporte</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,223 @@
+<div class="container-fluid">
+    <!--modales-->
+    <div id="agregarCurso" class="modal">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content" style="border-radius: 10px">
+                <div class="card-body">
+                    <div class="row">
+                        <!--titulo-->
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6 text-center">
+                            <h3>Agregar <span class="small">Curso</span></h3>
+                        </div>
+                        <div class="col-md-3 text-right">
+                            <button type="button" class="close" data-dismiss="modal"
+                                aria-hidden="true">×</button>
+                        </div>
+                        <!--contenido-->
+                        <div class="col-md-12">
+                            <form action="agregarCurso" method="POST" enctype="multipart/form-data">
+                                <div class="row">
+                                    <div class="col-md-3 text-center">
+                                        <img src="../../assets/images/logoBienvenida.svg" width="150" class="rounded-circle" alt="imagenCurso">
+                                        <h6 class="mb-0 font-medium">Imagen del curso </h6>
+                                        <input type="file" name="fotoCurso" id="fotoCurso" class="form-control-file" required/>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h4><i class="fas fa-clipboard-list mr-2"></i>Datos Generales</h4><hr>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <h6 class="mb-0 font-medium mt-2 ml-2">Nombre del Curso <span class="text-danger">*</span></h6>
+                                                <input type="text" name="nombreCurso" class="form-control" placeholder="Ejemplo del nombre de un curso" autocomplete="off" required>
+                                                <small class="form-control-feedback ml-1"> Maximo 255 caracteres </small> 
+                                            </div>
+                                            <div class="col-md-3">
+                                                <h6 class="mb-0 font-medium mt-2 ml-2">Area <span class="text-danger">*</span></h6>
+                                                <select class=" form-control custom-select" name="areaCurso" style="width: 100%; height:36px;" required>
+                                                    {{#each areas}}
+                                                    <option value="{{idArea}}">{{nombreArea}}</option>
+                                                    {{/each}}
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <h6 class="mb-0 font-medium mt-2 ml-2">Tipo <span class="text-danger">*</span></h6>
+                                                <select class="form-control custom-select" name="tipoCurso" style="width: 100%; height:36px;" required>
+                                                    <option value="Normativo">Normativo</option>
+                                                    <option value="Publico">Público</option>        
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <h6 class="mb-0 font-medium mt-2 ml-2">Modalidad <span class="text-danger">*</span></h6>
+                                                <select class="form-control custom-select" name="modalidadCurso" style="width: 100%; height:36px;" required>
+                                                    <option value="enVivo">En vivo</option>
+                                                    <option value="Diferido">Diferido</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <h6 class="mb-0 font-medium mt-2 ml-2">Capacidad</h6>
+                                                <select class="form-control custom-select" name="capacidadCurso" style="width: 100%; height:36px;" required>
+                                                    <option value="0">Ilimitado</option>
+                                                    <option value="10">10</option>
+                                                    <option value="25">25</option>
+                                                    <option value="50">50</option>
+                                                    <option value="75">75</option>
+                                                    <option value="100">100</option>       
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <h6 class="mb-0 font-medium mt-2 ml-2">Ponente <span class="text-danger">*</span></h6>
+                                                <select class="form-control custom-select" name="ponenteID" style="width: 100%; height:36px;">
+                                                    {{#each ponentes}}
+                                                    <option value="{{idPonente}}">{{nombrePonente}}</option>
+                                                    {{/each}}
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12"><!--wacha este tunning-->
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <h6 class="mb-0 font-medium mt-2 ml-2">Descripción <span class="text-danger">*</span></h6>
+                                                <textarea class="form-control" rows="6" name="descripcionCurso" placeholder="Describe de que trata el curso aqui..." autocomplete="off"></textarea>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <h6 class="mb-0 font-medium mt-2 ml-2">Plataforma <span class="text-danger">*</span></h6>
+                                                        <select class="form-control custom-select" name="plataformaCurso" style="width: 100%; height:36px;">
+                                                            <option value="" selected>N/A</option>
+                                                            <option value="Google Classroom">Google Classroom</option>
+                                                            <option value="Youtube">Youtube</option>
+                                                            <option value="Microsoft Teams">Microsift Teams</option>
+                                                            <option value="Zoom">Zoom</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <h6 class="mb-0 font-medium mt-2 ml-2">Temario <span class="text-danger">*</span></h6>
+                                                        <input type="file" name="temarioCurso" class="form-control-file" required/>
+                                                    </div>
+                                                    <div class="col-md-4    ">
+                                                        <h6 class="mb-0 font-medium mt-2 ml-2">Clave <span class="text-danger">*</span></h6>
+                                                        <input type="text" name="claveCurso" class="form-control" placeholder="000000000" autocomplete="off" required>
+                                                        <small class="form-control-feedback ml-1">Numérico</small>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <h6 class="mb-0 font-medium mt-2 ml-2">Enlace <span class="text-danger">*</span></h6>
+                                                        <input type="text" name="enlacePlataforma" class="form-control" placeholder="Enlace a la plataforma http://...." autocomplete="off">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{#fechaActual}}
+                                    <div class="col-md-8">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h4><i class="fas fa-calendar-alt mr-2 mt-3"></i>Calendario del Curso</h4><hr>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <h6 class="mb-0 font-medium mt-2 ml-2">Fecha Inicio <span class="text-danger">*</span></h6>
+                                                <input type="date" class="form-control" name="fechaInicioCurso"  value="{{fechaActual}}"style="width: 100%;">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <h6 class="mb-0 font-medium mt-2 ml-2">Hora Inicio</h6>
+                                                <input type="time" class="form-control" name="horarioInicioCurso" value="{{horaActual}}">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <h6 class="mb-0 font-medium mt-2 ml-2">Fecha Fin <span class="text-danger">*</span></h6>
+                                                <input type="date" class="form-control" name="fechaFinCurso" value="{{fechaActual}}"style="width: 100%;">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <h6 class="mb-0 font-medium mt-2 ml-2">Hora Fin</h6>
+                                                <input type="time" class="form-control" name="horarioFinCurso" value="{{horaSiguiente}}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h4><i class="far fa-calendar-alt mr-2 mt-3"></i>Calendario de inscripción</h4><hr>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <h6 class="mb-0 font-medium mt-2 ml-2">Fecha Inicio <span class="text-danger">*</span></h6>
+                                                <input type="date" class="form-control" name="fechaInscripcionInicioCurso" value="{{fechaActual}}" style="width: 100%;">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <h6 class="mb-0 font-medium mt-2 ml-2">Fecha Fin <span class="text-danger">*</span></h6>
+                                                <input type="date" class="form-control" name="fechaInscripcionFinCurso" value="{{fechaActual}}" style="width: 100%;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{/fechaActual}}
+                                    <div class="col-md-12 text-right mt-3">
+                                        <button type="submit" class="btn waves-effect waves-light btn-info"><i class="fas fa-save mr-2"></i>Guardar</button>
+                                        <button type="button" class="btn waves-effect waves-light btn-secondary" data-dismiss="modal"><i class="fas fa-times mr-2"></i>Cancelar</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--terminan modales-->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card" style="border-radius: 10px">
+                <div class="card-body">
+                    <div class="d-flex no-block align-items-center mb-4">
+                        <h3 class="card-title"><i class="fas fa-archive mr-2"></i>Todos los cursos</h3>
+                        <div class="ml-auto">
+                            <button type="button" class="btn waves-effect waves-light btn-primary" data-toggle="modal" data-target="#agregarCurso"><i class="fas fa-plus mr-2"></i>Agregar Curso</button>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table id="file_export" class="table table-bordered nowrap display">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Clave</th>
+                                    <th>Area</th>
+                                    <th>Tipo</th>
+                                    <th>Modalidad</th>
+                                    <th>Estudiantes</th>
+                                    <th>Estado</th>
+                                    <th>Ponente</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each cursos}}
+                                <tr>
+                                    <td>{{idCurso}}</td>
+                                    <td>{{nombreCurso}}</td>
+                                    <td>{{claveCurso}}</td>
+                                    <td>{{areaCurso}}</td>
+                                    <td>{{tipoCurso}}</td>
+                                    <td>{{modalidadCurso}}</td>
+                                    <td>{{numeroInscripcionesCurso}}</td>
+                                    {{#if activoCurso}}
+                                        <td><span class="label label-info">Activo</span></td>
+                                    {{else}}
+                                        <td><span class="label label-danger">Inactivo</span></td>
+                                    {{/if}}
+                                    <td>{{nombrePonente}}</td>
+                                    <td>
+                                        <a class="btn waves-effect waves-light btn-success btn-rounded"
+                                            href="curso/{{idCurso}}" type="button" >
+                                            <i class="fas fa-eye mr-2"></i> Consultar</a>
+                                    </td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,128 @@
+<div class="container-fluid">
+    <div class="row">
+        <!--primera columna-->
+        <div class="col-md-12">
+            <div class="card" style="border-radius: 10px">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6"><h3 class="card-title"><i class="fas fa-users mr-2"></i>Usuarios Registrados <span class="small"> en el Sistema</span></h3></div>
+                        <div class="col-md-6 text-right align-items-end mt-auto">
+                            <h4 class="font-light">({{registrados.registrados}}) Registrados ({{activos.activos}}) Activos ({{inactivos.inactivos}}) Inactivos</h4>
+                        </div>
+                    </div>
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs mt-3" role="tablist">
+                        <li class="nav-item"> <a class="nav-link active" data-toggle="tab" style="color: rgb(62, 85, 105);" href="#tabla" role="tab">
+                            <i class="fas fa-table mr-2"></i>Vista tabla</a> 
+                        </li>
+                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" style="color: rgb(62, 85, 105);" href="#tarjeta" role="tab">
+                            <i class="fas fa-id-card-alt mr-2"></i>Vista Tarjeta</a> 
+                        </li> 
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content tabcontent-border">
+                        <div class="tab-pane active" id="tabla" role="tabpanel">
+                            <div class="table-responsive p-20">
+                                <table id="file_export" class="table table-striped table-bordered display">
+                                    <thead>
+                                        <tr>
+                                            <th>Matrícula</th>
+                                            <th>Nombres</th>
+                                            <th>Apellidos</th>
+                                            <th>Edad</th>
+                                            <th>Antigüedad</th>
+                                            <th>Area</th>
+                                            <th>Puesto en el Sindicato</th>
+                                            <th>Rol</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{#each usuarios}}
+                                        <tr>
+                                            <th>{{matriculaUsuario}}</th>
+                                            <th>{{nombresUsuario}}</th>
+                                            <th>{{apellidosUsuario}}</th>
+                                            <th>{{edadUsuario}}</th>
+                                            <th>{{antiguedadUsuario}}</th>
+                                            <th>{{areaUsuario}}</th>
+                                            <th>{{puestoUsuario}}</th>
+                                            <th>
+                                                {{#ifEquals rolUsuario "Estudiante"}}
+                                                    <span class="label label-primary"><i class="far fa-smile mr-2"></i>{{rolUsuario}}</span>
+                                                {{/ifEquals}}
+                                                {{#ifEquals rolUsuario "Ponente"}}
+                                                    <span class="label label-info"><i class="far fa-smile mr-2"></i>{{rolUsuario}}</span>
+                                                {{/ifEquals}}
+                                                {{#ifEquals rolUsuario "Administrador"}}
+                                                    <span class="label label-warning"><i class="far fa-smile mr-2"></i>{{rolUsuario}}</span>
+                                                {{/ifEquals}}
+                                            </th>
+                                            <td>
+                                                <a href="usuario/{{idUsuario}}" class="btn waves-effect waves-light btn-rounded btn-sm btn-success small">
+                                                    <i class="far fa-user mr-1"></i> Ver Perfil</a></h5>
+                                            </td>
+                                        </tr>
+                                        {{/each}}
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Matrícula</th>
+                                            <th>Nombres</th>
+                                            <th>Apellidos</th>
+                                            <th>Edad</th>
+                                            <th>Antigüedad</th>
+                                            <th>Area</th>
+                                            <th>Puesto en el Sindicato</th>
+                                            <th>Rol</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane  p-20" id="tarjeta" role="tabpanel">
+                            <div class="row">
+                                <div class="input-group mb-3">
+                                    <input id="BuscarPonente" name="BuscarPonente" type="text"
+                                        class="form-control" placeholder="Buscar" aria-label=""
+                                        aria-describedby="basic-addon1">
+                                    <div class="input-group-append">
+                                        <button id="buscarPonente" name="buscarPonente"
+                                            class="btn btn-success" type="button">
+                                            <i class="ti-search"></i></button> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="row el-element-overlay">
+                                    {{#each usuarios}}
+                                    <div class="col-md-2 col-lg-2"><!--Usar este para el each, los otros no tienen formato chido-->
+                                        <div class="card">
+                                            <div class="el-card-item" class="modal-footer"
+                                                data-toggle="modal" data-target="#responsive-modal">
+                                                <div class="el-card-avatar el-overlay-1">
+                                                    <!-- FALTAAGREGAR <img src="../../assets/multimedia/usuarios/{{idEstudiante}}/{{fotoEstudiante}}" alt="user"/> -->
+                                                    <img src="../../assets/images/users/1-old.jpg" alt="user"/>
+                                                </div>
+                                                <div class="el-card-content">
+                                                    <h4 class="mb-0">{{nombresUsuario}} {{apellidosUsuario}}</h4>
+                                                    <span class="text-muted">{{puestoUsuario}}</span>
+                                                    <br>
+                                                    <a href="../usuario/{{idUsuario}}" class="btn btn-rounded btn-sm btn-success small">
+                                                        <i class="far fa-eye"></i>
+                                                    </a> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{/each}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

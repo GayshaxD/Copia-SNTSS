@@ -1,2 +1,2 @@
-# Copia-SNTSS
- Sistema gestor de cursos SNTSS
+# GodLikeFish
+Repositorio del equipo GodLike Fish > Sistema Gestor Cursos IMSS

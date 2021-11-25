@@ -1,0 +1,359 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col sm-12">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h1>Bienvenido <span class="small"> Administrador</span></h1>
+                    <p>Aqui encontraras un resumen del estado de los cursos, usuarios y los reportes de errores mas
+                        recientes.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <!-- Column -->
+        <div class="col-lg-3 col-md-6">
+            <div class="card bg-info">
+                <div class="d-flex flex-row">
+                    <div class="p-10">
+                        <h3 class="text-white box mb-0"><i class="fas fa-users"></i></h3>
+                    </div>
+                    <div class="text-white align-self-center p-10">
+                        <h3 class="mb-0">2,865</h3>
+                        <span class="text-white">Usuarios Registrados</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Column -->
+        <!-- Column -->
+        <div class="col-lg-3 col-md-6">
+            <div class="card bg-success">
+                <div class="d-flex flex-row">
+                    <div class="p-10">
+                        <h3 class="text-white box mb-0"><i class="fas fa-graduation-cap"></i></h3>
+                    </div>
+                    <div class="text-white align-self-center p-10">
+                        <h3 class="mb-0">2,254</h3>
+                        <span class="text-white">Reconocimientos Entregados</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Column -->
+        <!-- Column -->
+        <div class="col-lg-3 col-md-6">
+            <div class="card bg-inverse">
+                <div class="d-flex flex-row">
+                    <div class="p-10">
+                        <h3 class="text-white box mb-0"><i class="fab fa-leanpub"></i></h3>
+                    </div>
+                    <div class="text-white align-self-center p-10">
+                        <h3 class="mb-0">148</h3>
+                        <span class="text-white">Cursos Registrados</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Column -->
+        <!-- Column -->
+        <div class="col-lg-3 col-md-6">
+            <div class="card bg-cyan">
+                <div class="d-flex flex-row">
+                    <div class="p-10">
+                        <h3 class="text-white box mb-0"><i class="fas fa-male"></i></h3>
+                    </div>
+                    <div class="text-white align-self-center p-10">
+                        <h3 class="mb-0">64</h3>
+                        <span class="text-white">Ponentes Registrados</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Column -->
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Usuarios No Verificados <span class="small"> (8)</span></h3>
+                    <hr>
+                </div>
+                <div class="comment-widgets scrollable ps-container ps-theme-default ps-active-y" style="height:610px;"
+                    data-ps-id="96370757-1752-5407-955d-d2618da54798">
+                    {{#each usuariosSinVerificar}}
+                        <div class="d-flex flex-row comment-row mt-0" data-toggle="modal" data-target="#verificarUsuario{{idUsuario}}">
+                            <div class="p-2"><img src="../../assets/multimedia/usuarios/{{idUsuario}}/{{fotoUsuario}}" alt="user" width="50"class="rounded-circle"></div>
+                            <div class="comment-text w-100">
+                                <h6 class="font-medium">{{nombreUsuario}}</h6>
+                                <span class="mb-3 label label-rounded label-success">{{areaUsuario}}</span>
+                                <span class="mb-3 label label-rounded label-warning">{{puestoUsuario}}</span>
+                                <span class="mb-3 label label-rounded label-info">{{antiguedadUsuario}}</span>
+                                <div class="comment-footer">
+                                    <span class="text-muted float-left mt-2">{{matriculaUsuario}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    {{/each}}
+                    <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;">
+                        <div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+                    </div>
+                    <div class="ps-scrollbar-y-rail" style="top: 0px; right: 3px; height: 0px;">
+                        <div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators2" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators2" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators2" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active">
+                        <div class="card">
+                            <div class="card-body">
+                                <h1>Cursos <span class="small">Resumen</span></h1>
+                                <hr>
+                                <div class="row mt-5">
+                                    <div class="col b-r text-center">
+                                        <h2 class="font-light">148</h2>
+                                        <h6>Registrados</h6>
+                                    </div>
+                                    <div class="col b-r text-center">
+                                        <h2 class="font-light">54</h2>
+                                        <h6>Activos</h6>
+                                    </div>
+                                    <div class="col text-center">
+                                        <h2 class="font-light">94</h2>
+                                        <h6>Inactivos</h6>
+                                    </div>
+                                </div>
+                                <div class="col text-center mt-4">
+                                    <a href="/administrador/administrarCursos"
+                                        class="btn btn-lg btn-info waves-effect waves-light mt-2"><i
+                                            class="fab fa-stack-overflow mr-2"></i>Administrar</a>
+                                </div>
+                                <!--Grafica-->
+                                <h4 class="card-title mt-4">Porcentaje de los tipos de curso activos</h4>
+                                <div class="text-center" >
+                                    <canvas width="100" height="100" id="GraficaMuestra" ></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card">
+                            <div class="card-body">
+                                <h1>Alumnos <span class="small">Resumen</span></h1>
+                                <hr>
+                                <div class="row mt-5">
+                                    <div class="col b-r text-center">
+                                        <h2 class="font-light">2,801</h2>
+                                        <h6>Registrados</h6>
+                                    </div>
+                                    <div class="col b-r text-center">
+                                        <h2 class="font-light">2,000</h2>
+                                        <h6>Certificados</h6>
+                                    </div>
+                                    <div class="col text-center">
+                                        <h2 class="font-light">801</h2>
+                                        <h6>Sin certificación</h6>
+                                    </div>
+                                </div>
+                                <div class="col text-center mt-4">
+                                    <a href="/administrador/administrarUsuarios"
+                                        class="btn btn-lg btn-info waves-effect waves-light mt-2"><i
+                                            class="fab fa-stack-overflow mr-2"></i>Administrar</a>
+                                </div>
+                                <!--Grafica-->
+                                <h4 class="card-title mt-4">Areas con mayor cantidad de certificaciones</h4>
+                                <div class="text-center">
+                                    <canvas width="100" height="100" id="GraficaMuestra1" ></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card">
+                            <div class="card-body">
+                                <h1>Ponentes<span class="small">Resumen</span></h1>
+                                <hr>
+                                <div class="row mt-5">
+                                    <div class="col b-r text-center">
+                                        <h2 class="font-light">64</h2>
+                                        <h6>Registrados</h6>
+                                    </div>
+                                    <div class="col b-r text-center">
+                                        <h2 class="font-light">58</h2>
+                                        <h6>Activos</h6>
+                                    </div>
+                                    <div class="col text-center">
+                                        <h2 class="font-light">6</h2>
+                                        <h6>Inactivos</h6>
+                                    </div>
+                                </div>
+                                <div class="col text-center mt-4">
+                                    <a href="/administrador/administrarUsuarios"
+                                        class="btn btn-lg btn-info waves-effect waves-light mt-2"><i
+                                            class="fab fa-stack-overflow mr-2"></i>Administrar</a>
+                                </div>
+                                <!--Grafica-->
+                                <h4 class="card-title mt-4">Areas de espacialidad de los ponentes o algo</h4>
+                                <div class="text-center">
+                                    <canvas width="100" height="100" id="GraficaMuestra2" ></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators2" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <!--<i class="fas fa-chevron-right text-success"></i> -->
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-5">
+
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Reporte de Errores <span class="small"> ({{numeroErrores}})</span></h3>
+                    <hr>
+                </div>
+                <div class="comment-widgets scrollable ps-container ps-theme-default ps-active-y" style="height:610px;"
+                    data-ps-id="96370757-1752-5407-955d-d2618da54798">
+                    {{#each errores}}
+                        {{#if tipoProblema}}
+                        <div class="d-flex flex-row comment-row mt-0">
+                            <div class="p-2"><img src="../../assets\images\users/1.jpg" alt="user" width="50" class="rounded-circle"></div>
+                            <div class="comment-text w-100">
+                                <h6 class="font-medium">{{nombreUsuario}}n</h6>
+                                <span class="mb-3 d-block">{{asuntoProblema}}</span>
+                                <div class="comment-footer">
+                                    <span class="text-muted float-right">{{fechaProblema}}, {{horaProblema}}</span>
+                                    <h4><span class="badge badge-pill badge-primary">Curso</span></h4>
+                                    <span class="action-icons">
+                                        <a href="javascript:void(0)" data-toggle="modal" data-target="#Problema{{idProblema}}"><i class="ti-check"></i></a>
+                                        <a href="curso/{{idCurso}}"><i class="fas fa-arrow-right"></i></a>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        {{else}}
+                        <div class="d-flex flex-row comment-row mt-0">
+                            <!--<div class="p-2"><img src="../../assets/multimedia/usuarios/{{idUsuario}}/{{fotoUsuario}}" alt="user" width="50" height="50" class="rounded-circle"></div>-->
+                            <div class="p-2"><img src="../../assets\images\users/1.jpg" alt="user" width="50" class="rounded-circle"></div>
+                            <div class="comment-text w-100">
+                                <h6 class="font-medium">{{nombreUsuario}}n</h6>
+                                <span class="mb-3 d-block">{{asuntoProblema}}</span>
+                                <div class="comment-footer">
+                                    <span class="text-muted float-right">{{fechaProblema}}, {{horaProblema}}</span> 
+                                    <h4><span class="badge badge-pill badge-secondary">Usuario</span></h4>
+                                    <span class="action-icons">
+                                        <a href="javascript:void(0)" data-toggle="modal" data-target="#Problema{{idProblema}}"><i class="ti-check"></i></a>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        {{/if}}
+                    {{/each}}
+                    <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;">
+                        <div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+                    </div>
+                    <div class="ps-scrollbar-y-rail" style="top: 0px; right: 3px; height: 560px;">
+                        <div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 514px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Modales-->
+    <!-- Detalles Problemas -->
+    {{#each errores}}
+        {{#if tipoProblema}}
+        <div id="Problema{{idProblema}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="ProblemaLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Problema {{idProblema}}</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <p>{{descripcionProblema}}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <form action="ResolverProblema/1" method="POST">
+                            <input type="hidden" name="idProblema" value="{{idProblemaCurso}}">
+                            <button type="submit" class="btn btn-success waves-effect"><i
+                                class="fas fa-check mr-2"></i>Resuelto</button>
+                            <button type="button" class="btn btn-info waves-effect" data-dismiss="modal"><i
+                                    class="fas fa-times mr-2"></i>Cancelar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{else}}
+        <div id="Problema{{idProblema}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="ProblemaLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Problema {{idProblema}}</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <p>{{descripcionProblema}}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <form action="ResolverProblema/0" method="POST">
+                            <input type="hidden" name="idProblema"value="{{idProblemaUsuario}}">
+                            <button type="submit" class="btn btn-success waves-effect"><i
+                                class="fas fa-check mr-2"></i>Resuelto</button>
+                            <button type="button" class="btn btn-info waves-effect" data-dismiss="modal"><i
+                                    class="fas fa-times mr-2"></i>Cancelar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/if}}
+    {{/each}}
+    <!-- modal verificar Usuario -->
+    {{#each usuariosSinVerificar}}
+    <div id="verificarUsuario{{idUsuario}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="marcarResueltoLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="marcarResueltoLabel">¿Desea verificar al usuario?</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body text-center">
+                    <div>
+                        <h4 class="card-title mt-2" class="center">{{nombreUsuario}}</h4></label>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <a href="/administrador/DescargarTarjetonUsuario/{{idUsuario}}/{{tarjetonUsuario}}" class="btn btn-success waves-effect">
+                            <i class="fas fa-download"></i> Descargar Tarjetón</a>
+                    <form action="../administrador/VerificarTarjetonUsuario" method="POST">
+                        <input type="hidden" name="idUsuario" value="{{idUsuario}}">
+                        <button type="submit" class="btn btn-info waves-effect"><i
+                            class="fas fa-check mr-2"></i>Verificar</button>
+                        <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal"><i
+                                class="fas fa-times mr-2"></i>Denegar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
